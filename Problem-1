@@ -1,0 +1,47 @@
+const prompt = require("prompt-sync")();
+class Calculator {
+    constructor(a, b) {
+        this.a = a
+        this.b = b
+    }
+    add() {
+        return this.a + this.b
+    }
+    sub() {
+        return this.a - this.b
+    }
+    mult() {
+        return this.a * this.b
+    }
+    div() {
+        if (this.b == 0) {
+            return 'cannot divide by zero'
+        } else {
+            return this.a / this.b
+        }
+    }
+}
+
+let a = Number(prompt("enter first number: "))
+let b = Number(prompt("enter second number: "))
+const calc = new Calculator(a, b)
+let typeofoperation = prompt("Enter type of operation, + or - or * or /:  ")
+let result
+switch (typeofoperation) {
+    case '+':
+        result=calc.add()
+        break
+    case '-':
+        result=calc.sub()
+        break
+    case '*':
+        result=calc.mult()
+        break
+    case '/':
+        result=calc.div()
+        break
+    default:
+        result= 'invalid operation'
+        break
+}
+console.log("Result: " + result);
